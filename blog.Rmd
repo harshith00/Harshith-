@@ -1,0 +1,44 @@
+install.packages("quarto")
+
+---
+title: "Exploring My Data Science Topic"
+output: quarto::quarto_html_document
+---
+
+# Exploring My Data Science Topic
+
+In this blog post, we will explore and analyze a specific data science topic. The goal is to provide insights into the problem, the data, and the solution. Throughout the analysis, we will use the R programming language.
+
+## Data Loading
+
+Let's start by loading the dataset for our analysis.
+
+```{r}
+# Load necessary libraries
+install.packages("tidyverse")
+library(tidyverse)
+
+# Load the dataset
+data <- read.csv("C:/Users/shrav/Downloads/Consumer_Complaints (1).csv")
+
+# Display the first few rows
+head(data)
+
+# Summary statistics
+summary(data)
+
+# Create a scatter plot
+ggplot(data, aes(x = Complaint_ID, y = ZIP_code)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Complaint ID vs ZIP code")
+
+barplot(table(data$Product), main = "Bar Plot of Categorical Variable")
+
+
+## Missing Values
+# Identify and visualize missing values
+library(visdat)
+vis_miss(data)
+
+
+
